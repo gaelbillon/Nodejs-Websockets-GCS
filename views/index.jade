@@ -1,0 +1,183 @@
+doctype 5
+html(lang="en", ng-app="myApp")
+  head
+    meta(charset='utf8')
+    title Angular Socket.io Seed App
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css')
+    link(rel='stylesheet', href='/css/app.css')
+
+block body
+  div(class='mavlink_parameters', ng-controller='AppCtrl')
+    ul.nav.nav-list
+      li.active
+          a(href='#')
+            h3 Mavlink parameters        
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cogs
+            | autopilot : {{message.autopilot}}
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cogs
+            | type : {{message.type}}
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cogs
+            | system_status : {{message.system_status}}
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-plane
+            | mavlink_version : {{message.mavlink_version}}
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-fighter-jet
+            | airspeed : {{message.airspeed}}
+            span  meters/second
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-fighter-jet
+            | groundspeed : {{message.groundspeed}}
+            span  meters/second
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-plane
+            | heading : {{message.heading}}
+            span  °
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-dashboard
+            | throttle : {{message.throttle}}
+            span  %
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-globe
+            | lat : {{message.lat}}
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-globe
+            | lon : {{message.lon}}
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-globe
+            | alt : {{message.alt}}
+            span  meters
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-fighter-jet
+            | relative_alt : {{message.relative_alt}}
+            span  meters
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-external-link-sign
+            | climb : {{message.climb}}
+            span  meters/second
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-resize-horizontal
+            | nav_roll : {{message.nav_roll}}
+            span  °
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-resize-vertical
+            | nav_pitch : {{message.nav_pitch}}
+            span  °
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-location-arrow
+            | nav_bearing : {{message.nav_bearing}}
+            span  °
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-location-arrow
+            | target_bearing : {{message.target_bearing}}
+            span  °
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-plane
+            | wp_dist : {{message.wp_dist}}
+            span  meters
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            | xacc : {{message.xacc}}
+            span  m/s^2
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            | yacc : {{message.yacc}}
+            span  m/s^2
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            | zacc : {{message.zacc}}
+            span  m/s^2
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            | xgyro : {{message.xgyro}}
+            span  rad / sec
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            | ygyro : {{message.ygyro}}
+            span  rad / sec
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            | zgyro : {{message.zgyro}}
+            span  rad / sec
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-magnet
+            | xmag : {{message.xmag}} 
+            span  gauss
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-magnet
+            | ymag : {{message.ymag}}
+            span  gauss
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-magnet
+            | zmag : {{message.zmag}}
+            span  gauss
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-bolt
+            | vcc : {{message.vcc}}
+            span  mV
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-time
+            | time_boot_ms : {{message.time_boot_ms}}
+            span  ms
+
+  div(ng-controller='CompassCtrl')
+    div(class='bearings')
+      div(class='north')
+        | N
+      div(class='east')
+        | E
+      div(class='south')
+        | S
+      div(class='west')
+        | W
+      div(class="compassHeadingDisplay")
+        | {{heading}}
+
+    div(class='compass', heading='heading', compass, style='-webkit-transform:rotate({{heading}}deg)')
+      div(class='arrow-up')
+    
+  div(ng-controller='GoogleMapCtrl')
+    .google-map(center='position.coords', zoom='zoomProperty', markers='markersProperty', latitude='clickedLatitudeProperty', longitude='clickedLongitudeProperty', mark-click='true', draggable='true', fit='false', events='eventsProperty')
+
+  script(src='http://maps.googleapis.com/maps/api/js?sensor=false&language=en')
+  script(src='js/lib/angular/angular.js')
+  script(src='js/lib/angular-google-maps/angular-google-maps.js')
+  script(src='/socket.io/socket.io.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')

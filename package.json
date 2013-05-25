@@ -1,0 +1,33 @@
+{
+  "name": "nodejs_serial_mavlink",
+  "version": "0.0.1",
+  "description": "Web based Ground Control Station for vehicles talking mavlink",
+  "author": {
+    "name": "Gaël Billon",
+    "email": "gael.billon@gmail.com",
+    "url": "http://gaelbillon.com"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+      "drone",
+      "uav",
+      "arducopter",
+      "mavlink",
+      "ardupilot"
+  ],
+  "dependencies": {
+    "serialport": "1.1.0",
+    "express": "3.2.4",
+    "socket.io": "0.9.14",
+    "jade": ">= 0.0.1",
+    "mavlink": "1.0.1"
+  },
+  "engine": "node >= 0.10.0",
+  "license": "MIT"
+}
