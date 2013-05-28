@@ -24,7 +24,7 @@ function AppCtrl($scope, socket, $timeout) {
 		console.log(data);
 	});
 	socket.on('mavlinkMessageEvent', function(data) {
-		// List of autopilote
+		// List of autopilotes
 		var autopilotType = ['Generic autopilot, full support for everything', 'PIXHAWK autopilot', 'SLUGS autopilot', 'ArduPilotMega / ArduCopter', 'OpenPilot', 'Generic autopilot only supporting simple waypoints', 'Generic autopilot supporting waypoints and other simple navigation commands', 'Generic autopilot supporting the full mission command set', 'No valid autopilot, e.g. a GCS or other MAVLink component', 'PPZ UAV', 'UAV Dev Board', 'FlexiPilot', 'PX4 Autopilot', 'SMACCMPilot', 'MAV_AUTOPILOT_AUTOQUAD'];
 		var vehicleType = ['Generic micro air vehicle.', 'Fixed wing aircraft.', 'Quadrotor', 'Coaxial helicopter', 'Normal helicopter with tail rotor.', 'Ground installation', 'Operator control unit / ground control station', 'Airship, controlled', 'Free balloon, uncontrolled', 'Rocket', 'Ground rover', 'Surface vessel, boat, ship', 'Submarine', 'Hexarotor', 'Octorotor', 'Octorotor', 'Flapping wing', 'MAV_TYPE_KITE'];
 		var systemStatus = ['Uninitialized system, state is unknown.', 'System is booting up.', 'System is calibrating and not flight-ready.', 'System is grounded and on standby. It can be launched any time.', 'System is active and might be already airborne. Motors are engaged.', 'System is in a non-normal flight mode. It can however still navigate.', 'System is in a non-normal flight mode. It lost control over parts or over the whole airframe. It is in mayday and going down.', 'MAV_STATE_POWEROFF'];
@@ -53,9 +53,6 @@ function AppCtrl($scope, socket, $timeout) {
 					$scope.message.type = vehicleType[data[parametersInMavlink[key]]];
 				}
 				if (parametersInMavlink[key] === 'system_status') {
-					// console.log('data[parametersInMavlink[key]] : ' + data[parametersInMavlink[key]])
-					// console.log('systemStatus[data[parametersInMavlink[key]]] : ' + systemStatus[data[parametersInMavlink[key]]])
-					// console.log('systemStatus[data[parametersInMavlink[key]]-1] : ' + systemStatus[data[parametersInMavlink[key]]-1])
 					$scope.message.system_status = systemStatus[data[parametersInMavlink[key]]-1];
 				}
 
@@ -83,6 +80,21 @@ function CompassCtrl($scope, socket, $timeout) {
 	// 		$scope.heading = data.heading;
 	// 	}
 	// });
+}
+
+function d3Ctrl($scope, $timeout) {
+	$scope.timeInMs = 0;
+	var countUp = function() {
+	    $scope.timeInMs+= 500;
+	    $timeout(countUp, 500);
+	    var rand = Math.random() * 360;
+	    rand = rand - (rand % 10);
+	    // if ( rand < 180 ) { rand = undefined };
+	    $scope.$apply(function () {
+	        $scope.dat = rand;
+	    });
+	}
+	$timeout(countUp, 500);
 }
 
 function GoogleMapCtrl($scope, $timeout, $log, socket) {

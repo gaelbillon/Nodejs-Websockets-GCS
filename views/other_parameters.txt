@@ -1,0 +1,77 @@
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            span
+            | xacc : 
+            keepoldvalueifnewisempty(val='message.xacc')
+            span  m/s^2
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            span
+            | yacc : 
+            keepoldvalueifnewisempty(val='message.yacc')
+            span  m/s^2
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            span
+            | zacc : 
+            keepoldvalueifnewisempty(val='message.zacc')
+            span  m/s^2
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            span
+            | xgyro : 
+            keepoldvalueifnewisempty(val='message.xgyro')
+            span  rad / sec
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            span
+            | ygyro : 
+            keepoldvalueifnewisempty(val='message.ygyro')
+            span  rad / sec
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-cog
+            span
+            | zgyro : 
+            keepoldvalueifnewisempty(val='message.zgyro')
+            span  rad / sec
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-magnet
+            span
+            | xmag : 
+            keepoldvalueifnewisempty(val='message.xmag')
+            span  gauss
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-magnet
+            span
+            | ymag : 
+            keepoldvalueifnewisempty(val='message.ymag')
+            span  gauss
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-magnet
+            span
+            | zmag : 
+            keepoldvalueifnewisempty(val='message.zmag')
+            span  gauss
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-bolt
+            span
+            | vcc : 
+            keepoldvalueifnewisempty(val='message.vcc')
+            span  mV
+        li
+          a(href='#')
+            i.icon-fixed-width.icon-time
+            span
+            | time_boot_ms : 
+            keepoldvalueifnewisempty(val='message.time_boot_ms')
+            span  ms
