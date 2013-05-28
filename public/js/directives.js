@@ -17,7 +17,6 @@ directive('keepoldvalueifnewisempty', function() {
 
 angular.module('myApp.directives').
 directive('d3plot', function() {
-
 	return {
 		restrict: "E",
 		scope: {
@@ -25,19 +24,15 @@ directive('d3plot', function() {
 		},
 		link: function(scope, element, attrs) {
 
-			// var n = 40,
-			// 	random = d3.random.normal(0, .2),
-			// 	data = d3.range(n).map(random);
-			var data = [0];
-
+			var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 			var margin = {
 				top: 10,
 				right: 10,
 				bottom: 20,
 				left: 40
 			},
-				width = 960 - margin.left - margin.right,
-				height = 500 - margin.top - margin.bottom;
+				width = 1280 - margin.left - margin.right,
+				height = 170 - margin.top - margin.bottom;
 
 			var x = d3.scale.linear()
 				.domain([0, 40 - 1])
@@ -55,7 +50,7 @@ directive('d3plot', function() {
 				return y(d);
 			});
 
-			var svg = d3.select(element[0]).append("svg")
+			var svg = d3.select('d3plot').append("svg")
 				.attr("width", width + margin.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom)
 				.append("g")
@@ -83,33 +78,24 @@ directive('d3plot', function() {
 				.attr("class", "line")
 				.attr("d", line);
 
-			tick();
-
-			function tick() {
-				
-				scope.$watch('val', function (newVal, oldVal) {
+			scope.$watch('val', function(newVal, oldVal) {
+				if (newVal) {
 					data.push(newVal);
-					console.log(newVal)
-				});
+					console.log(data);
 
-				// push a new data point onto the back
-				// data.push(random());
-				// console.log(random());
+					// redraw the line, and slide it to the left
+					path
+						.attr("d", line)
+						.attr("transform", null)
+						.transition()
+						.duration(300)
+						.ease("linear")
+						.attr("transform", "translate(" + x(-1) + ")");
 
-				// redraw the line, and slide it to the left
-				path
-					.attr("d", line)
-					.attr("transform", null)
-					.transition()
-					.duration(500)
-					.ease("linear")
-					.attr("transform", "translate(" + x(-1) + ")")
-					.each("end", tick);
+					data.shift();
+				}
+			});
 
-				// pop the old data point off the front
-				data.shift();
-
-			}
 		}
 	};
 });

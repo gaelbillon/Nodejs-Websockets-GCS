@@ -147,11 +147,11 @@ block body
     div(class='compass', style='-webkit-transform:rotate({{heading}}deg)')
       div(class='arrow-up') 
 
+  div(ng-controller='GoogleMapCtrl')
+      .google-map(center='position.coords', zoom='zoomProperty', markers='markersProperty', latitude='clickedLatitudeProperty', longitude='clickedLongitudeProperty', mark-click='true', draggable='true', fit='false', events='eventsProperty')
+  
   div(ng-controller='d3Ctrl')
     d3plot(val='dat')   
-
-  div(ng-controller='GoogleMapCtrl')
-    .google-map(center='position.coords', zoom='zoomProperty', markers='markersProperty', latitude='clickedLatitudeProperty', longitude='clickedLongitudeProperty', mark-click='true', draggable='true', fit='false', events='eventsProperty')
 
   script(src='http://d3js.org/d3.v3.min.js')
   script(src='http://maps.googleapis.com/maps/api/js?sensor=false&language=en')
