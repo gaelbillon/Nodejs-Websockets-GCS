@@ -3,13 +3,13 @@
 /* Directives */
 
 angular.module('myApp.directives', []).
-directive('compass', function() {
+directive('keepoldvalueifnewisempty', function() {
 	return {
-		restrict: "A",
+		restrict: "E",
 		link: function(scope, elm, attrs) {
-			scope.$watch(attrs.heading, function (v, vn) {
-			    // console.log('value changed, new value is: ' + v);
-				console.log(v + ', ' + vn);
+			scope.$watch(attrs.val, function (newValue, oldValue) {
+				newValue = !newValue ? oldValue : newValue;
+				elm.html(newValue);
 			});
 		}
 	};

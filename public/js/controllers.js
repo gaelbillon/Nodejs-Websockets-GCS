@@ -2,7 +2,23 @@
 
 /* Controllers */
 
-function AppCtrl($scope, socket) {
+function AppCtrl($scope, socket, $timeout) {
+
+	// Spoof airspeed for testing without mavlink
+	$scope.message = {};
+	$scope.timeInMs = 0;
+	var countUp = function() {
+	    $scope.timeInMs+= 500;
+	    $timeout(countUp, 500);
+	    var rand = Math.random() * 360;
+	    rand = rand - (rand % 10);
+	    if ( rand < 180 ) { rand = undefined };
+	    $scope.$apply(function () {
+	        $scope.message.airspeed = rand;
+	    });
+	}
+	$timeout(countUp, 500);
+
 	// When we have a new mavlik message
 	socket.on('SYS_STATUS', function(data) {
 		console.log(data);
@@ -49,7 +65,7 @@ function AppCtrl($scope, socket) {
 }
 
 function CompassCtrl($scope, socket, $timeout) {
-	// Spoof compass
+	// Spoof compass for testing without mavlink
 	$scope.timeInMs = 0;
 	var countUp = function() {
 	    $scope.timeInMs+= 500;
@@ -57,7 +73,7 @@ function CompassCtrl($scope, socket, $timeout) {
 	    var rand = Math.random() * 360;
 	    rand = rand - (rand % 10);
 	    $scope.$apply(function () {
-	        $scope.heading = rand;;
+	        $scope.heading = rand;
 	    });
 	}
 	$timeout(countUp, 500);

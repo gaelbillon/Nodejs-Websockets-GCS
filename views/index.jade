@@ -16,141 +16,196 @@ block body
         li
           a(href='#')
             i.icon-fixed-width.icon-cogs
-            | autopilot : {{message.autopilot}}
+            span
+            | autopilot : 
+            keepoldvalueifnewisempty(val='message.autopilot')
         li
           a(href='#')
             i.icon-fixed-width.icon-cogs
-            | type : {{message.type}}
+            span
+            | type : 
+            keepoldvalueifnewisempty(val='message.type')
         li
           a(href='#')
             i.icon-fixed-width.icon-cogs
-            | system_status : {{message.system_status}}
+            span
+            | system_status : 
+            keepoldvalueifnewisempty(val='message.system_status')
         li
           a(href='#')
             i.icon-fixed-width.icon-plane
-            | mavlink_version : {{message.mavlink_version}}
+            span
+            | mavlink_version : 
+            keepoldvalueifnewisempty(val='message.mavlink_version')
         li
           a(href='#')
             i.icon-fixed-width.icon-fighter-jet
-            | airspeed : {{message.airspeed}}
+            span
+              | airspeed : 
+            keepoldvalueifnewisempty(val='message.airspeed')
             span  meters/second
         li
           a(href='#')
             i.icon-fixed-width.icon-fighter-jet
-            | groundspeed : {{message.groundspeed}}
+            span
+            | groundspeed : 
+            keepoldvalueifnewisempty(val='message.groundspeed')
             span  meters/second
         li
           a(href='#')
             i.icon-fixed-width.icon-plane
-            | heading : {{message.heading}}
+            span
+            | heading : 
+            keepoldvalueifnewisempty(val='message.heading')
             span  °
         li
           a(href='#')
             i.icon-fixed-width.icon-dashboard
-            | throttle : {{message.throttle}}
+            span
+            | throttle : 
+            keepoldvalueifnewisempty(val='message.throttle')
             span  %
         li
           a(href='#')
             i.icon-fixed-width.icon-globe
-            | lat : {{message.lat}}
+            | lat : 
+            keepoldvalueifnewisempty(val='message.lat')
         li
           a(href='#')
             i.icon-fixed-width.icon-globe
-            | lon : {{message.lon}}
+            span
+            | lon : 
+            keepoldvalueifnewisempty(val='message.lon')
         li
           a(href='#')
             i.icon-fixed-width.icon-globe
-            | alt : {{message.alt}}
+            | alt : 
+            keepoldvalueifnewisempty(val='message.alt')
             span  meters
         li
           a(href='#')
             i.icon-fixed-width.icon-fighter-jet
-            | relative_alt : {{message.relative_alt}}
+            span
+            | relative_alt : 
+            keepoldvalueifnewisempty(val='message.relative_alt')
             span  meters
         li
           a(href='#')
             i.icon-fixed-width.icon-external-link-sign
-            | climb : {{message.climb}}
+            span
+            | climb : 
+            keepoldvalueifnewisempty(val='message.climb')
             span  meters/second
         li
           a(href='#')
             i.icon-fixed-width.icon-resize-horizontal
-            | nav_roll : {{message.nav_roll}}
+            span
+            | nav_roll : 
+            keepoldvalueifnewisempty(val='message.nav_roll')
             span  °
         li
           a(href='#')
             i.icon-fixed-width.icon-resize-vertical
-            | nav_pitch : {{message.nav_pitch}}
+            | nav_pitch : 
+            keepoldvalueifnewisempty(val='message.nav_pitch')
             span  °
         li
           a(href='#')
             i.icon-fixed-width.icon-location-arrow
-            | nav_bearing : {{message.nav_bearing}}
+            span
+            | nav_bearing : 
+            keepoldvalueifnewisempty(val='message.nav_bearing')
             span  °
         li
           a(href='#')
             i.icon-fixed-width.icon-location-arrow
-            | target_bearing : {{message.target_bearing}}
+            span
+            | target_bearing : 
+            keepoldvalueifnewisempty(val='message.target_bearing')
             span  °
         li
           a(href='#')
             i.icon-fixed-width.icon-plane
-            | wp_dist : {{message.wp_dist}}
+            span
+            | wp_dist : 
+            keepoldvalueifnewisempty(val='message.wp_dist')
             span  meters
         li
           a(href='#')
             i.icon-fixed-width.icon-cog
-            | xacc : {{message.xacc}}
+            span
+            | xacc : 
+            keepoldvalueifnewisempty(val='message.xacc')
             span  m/s^2
         li
           a(href='#')
             i.icon-fixed-width.icon-cog
-            | yacc : {{message.yacc}}
+            span
+            | yacc : 
+            keepoldvalueifnewisempty(val='message.yacc')
             span  m/s^2
         li
           a(href='#')
             i.icon-fixed-width.icon-cog
-            | zacc : {{message.zacc}}
+            span
+            | zacc : 
+            keepoldvalueifnewisempty(val='message.zacc')
             span  m/s^2
         li
           a(href='#')
             i.icon-fixed-width.icon-cog
-            | xgyro : {{message.xgyro}}
+            span
+            | xgyro : 
+            keepoldvalueifnewisempty(val='message.xgyro')
             span  rad / sec
         li
           a(href='#')
             i.icon-fixed-width.icon-cog
-            | ygyro : {{message.ygyro}}
+            span
+            | ygyro : 
+            keepoldvalueifnewisempty(val='message.ygyro')
             span  rad / sec
         li
           a(href='#')
             i.icon-fixed-width.icon-cog
-            | zgyro : {{message.zgyro}}
+            span
+            | zgyro : 
+            keepoldvalueifnewisempty(val='message.zgyro')
             span  rad / sec
         li
           a(href='#')
             i.icon-fixed-width.icon-magnet
-            | xmag : {{message.xmag}} 
+            span
+            | xmag : 
+            keepoldvalueifnewisempty(val='message.xmag')
             span  gauss
         li
           a(href='#')
             i.icon-fixed-width.icon-magnet
-            | ymag : {{message.ymag}}
+            span
+            | ymag : 
+            keepoldvalueifnewisempty(val='message.ymag')
             span  gauss
         li
           a(href='#')
             i.icon-fixed-width.icon-magnet
-            | zmag : {{message.zmag}}
+            span
+            | zmag : 
+            keepoldvalueifnewisempty(val='message.zmag')
             span  gauss
         li
           a(href='#')
             i.icon-fixed-width.icon-bolt
-            | vcc : {{message.vcc}}
+            span
+            | vcc : 
+            keepoldvalueifnewisempty(val='message.vcc')
             span  mV
         li
           a(href='#')
             i.icon-fixed-width.icon-time
-            | time_boot_ms : {{message.time_boot_ms}}
+            span
+            | time_boot_ms : 
+            keepoldvalueifnewisempty(val='message.time_boot_ms')
             span  ms
 
   div(ng-controller='CompassCtrl')
@@ -166,7 +221,7 @@ block body
       div(class="compassHeadingDisplay")
         | {{heading}}
 
-    div(class='compass', heading='heading', compass, style='-webkit-transform:rotate({{heading}}deg)')
+    div(class='compass', style='-webkit-transform:rotate({{heading}}deg)')
       div(class='arrow-up')
     
   div(ng-controller='GoogleMapCtrl')

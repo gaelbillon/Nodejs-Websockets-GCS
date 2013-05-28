@@ -73,3 +73,6 @@ body {
 	position: absolute;
 	left: 36%;
 }
+keepoldvalueifnewisempty {
+	font-weight: bold;
+}
