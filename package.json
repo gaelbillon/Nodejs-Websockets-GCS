@@ -1,7 +1,7 @@
 {
   "name": "nodejs_serial_mavlink",
   "version": "0.0.1",
-  "description": "Web based Ground Control Station for vehicles talking mavlink",
+  "description": "Web based Ground Control Station for unmanned vehicles talking mavlink",
   "author": {
     "name": "Gaël Billon",
     "email": "gael.billon@gmail.com",
